@@ -1,7 +1,8 @@
 package com.mechanitis.demo.multi;
 
-import java.util.stream.Collectors;
 import java.util.stream.Stream;
+
+import static java.util.stream.Collectors.joining;
 
 public class StackParser implements StackInfo {
 
@@ -15,7 +16,7 @@ public class StackParser implements StackInfo {
     public String getStack() {
         return StackWalker.getInstance()
                           .walk(frames -> frames.map(Object::toString)
-                                                .collect(Collectors.joining("\n")));
+                                                .collect(joining("\n")));
     }
 
     public static void main(String[] args) {
